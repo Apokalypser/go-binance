@@ -390,6 +390,11 @@ func (c *Client) NewGetAccountSnapshotService() *GetAccountSnapshotService {
 	return &GetAccountSnapshotService{c: c}
 }
 
+// NewAllCoinsInformationService init getting all coin info service
+func (c *Client) NewAllCoinsInformationService() *AllCoinsInformationService {
+	return &AllCoinsInformationService{c: c}
+}
+
 // NewListTradesService init listing trades service
 func (c *Client) NewListTradesService() *ListTradesService {
 	return &ListTradesService{c: c}
