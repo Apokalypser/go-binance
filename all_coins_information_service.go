@@ -31,10 +31,11 @@ func (s *AllCoinsInformationService) Do(ctx context.Context, opts ...RequestOpti
 
 // CoinInfo define coin info
 type CoinInfo struct {
-	Coin             string         `json:"coin"`
-	DepositAllEnable bool           `json:"depositAllEnable"`
-	Name             string         `json:"name"`
-	NetworkList      []NetworkEntry `json:"networkList"`
+	Coin              string         `json:"coin"`
+	DepositAllEnable  bool           `json:"depositAllEnable"`
+	Name              string         `json:"name"`
+	NetworkList       []NetworkEntry `json:"networkList"`
+	WithdrawAllEnable bool           `json:"withdrawAllEnable"`
 }
 
 type NetworkEntry struct {
