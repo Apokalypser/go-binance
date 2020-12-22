@@ -2,6 +2,7 @@ package binance
 
 import (
 	"context"
+	"encoding/json"
 )
 
 // PingService ping server
@@ -56,4 +57,22 @@ func (s *SetServerTimeService) Do(ctx context.Context, opts ...RequestOption) (t
 	timeOffset = currentTimestamp() - serverTime
 	s.c.TimeOffset = timeOffset
 	return timeOffset, nil
+}
+
+// TradeFee get trade fee
+type TradeFeeService struct {
+	c *Client
+}
+
+// Do send request
+func (s *TradeFeeService) Do(ctx context.Context, opts ...RequestOption) (result map[string]interface{}, err error) {
+	r := &request{
+		method:   "GET",
+		endpoint: "/wapi/v3/tradeFee.html",
+		secType:  secTypeSigned,
+	}
+	data, err := s.c.callAPI(ctx, r, opts...)
+	var res map[string]interface{}
+	json.Unmarshal(data, &res)
+	return res, err
 }

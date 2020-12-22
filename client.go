@@ -315,6 +315,11 @@ func (c *Client) NewSetServerTimeService() *SetServerTimeService {
 	return &SetServerTimeService{c: c}
 }
 
+// NewGetTradeFeeService init get withdraw fee service
+func (c *Client) NewGetTradeFeeService() *TradeFeeService {
+	return &TradeFeeService{c: c}
+}
+
 // NewDepthService init depth service
 func (c *Client) NewDepthService() *DepthService {
 	return &DepthService{c: c}
